@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style6.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+
+    <title>Dark mode button</title>
+</head>
+<body class="dark">
+<button class="mode">DARK</button>
+<ul>
+    <li>
+        <button class="active">
+            <i class="fas fa-phone-alt">
+            </i>
+        </button>
+    </li>
+    <li>
+        <button>
+            <i class="fas fa-paper-plane">
+            </i>
+        </button>
+    </li>
+    <li>
+        <button>
+            <i class="fas fa-wifi">
+            </i>
+        </button>
+    </li>
+    <li>
+        <button>
+            <i class="fab fa-bluetooth-b">
+            </i>
+        </button>
+    </li>
+    <li>
+        <button>
+            <i class="fas fa-moon">
+            </i>
+        </button>
+    </li>
+</ul>
+
+<script>
+    const mode=document.querySelector('.mode');
+    let body={
+        'el':document.querySelector('body'),
+        'dark':false
+    }
+    mode.addEventListener('click',()=>{
+        if(body.dark === false){
+            body.dark=true;
+            body.el.className='dark';
+            mode.textContent='light';
+        }
+        else {
+            body.dark=false;
+            body.el.className='light';
+            mode.textContent='dark';
+
+        }
+    });
+
+    const btns=document.querySelectorAll('li > button');
+    btns.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            btn.classList.toggle('active');
+        })
+    })
+
+
+</script>
+</body>
+</html>
